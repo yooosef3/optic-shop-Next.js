@@ -5,7 +5,7 @@ import React from "react";
 import fs from "fs/promises";
 import path from "path";
 
-const index = ({ data }) => {
+const index = ({ products }) => {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ const index = ({ data }) => {
       </Head>
       <div>
         <BannerTemplate background="/images/5.jpeg" header="محصولات" />
-        <Products data={data} />
+        <Products products={products} />
       </div>
     </>
   );
@@ -29,7 +29,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data,
+      products: data.products,
     },
   };
 }

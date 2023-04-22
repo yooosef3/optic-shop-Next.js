@@ -10,6 +10,9 @@ const Menu = () => {
             <Link href='/products'>
                 <h1 className='text-lg font-bold hover:text-[#045868] duration-300 cursor-pointer'>محصولات</h1>
             </Link>
+            <Link href='/repair'>
+                <h1 className='text-lg font-bold hover:text-[#045868] duration-300 cursor-pointer'>تعمیرات</h1>
+            </Link>
             <Link href='/cart'>
                 <h1 className='text-lg font-bold hover:text-[#045868] duration-300 cursor-pointer'>سبد خرید</h1>
             </Link>

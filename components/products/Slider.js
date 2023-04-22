@@ -9,7 +9,7 @@ import React from "react";
 
 function Slider({ product }) {
   return (
-    <div className="lg:w-[50%] pb-10 pt-20 lg:px-10">
+    <div className="lg:w-[60%] pb-10 pt-20 lg:px-10">
       <Swiper
         spaceBetween={10}
         navigation={true}
@@ -18,7 +18,7 @@ function Slider({ product }) {
         autoplay={{
           delay: 4000,
         }}
-        className="detail w-[350px] md:w-[400px] xl:w-[500px] h-[300px] md:h-[350px] xl:h-[450px] shadow-xl rounded-lg"
+        className="detail w-[350px] md:w-[450px] xl:w-[550px] h-[300px] md:h-[400px] xl:h-[500px] shadow-xl rounded-lg"
       >
         {product.images.map((image) => (
           <SwiperSlide className="p-5 bg-white">

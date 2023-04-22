@@ -1,7 +1,7 @@
 import Image from "next/image";
 import QuestionList from "./QuestionList";
 import React from "react";
-import faq from "../../../public/images/would-you-rather-questions-coworkers-article-600x400.jpg";
+import faq from "../../../public/images/1000_F_373514419_Mq5oisa8izs1TN8h8ozBPIJDJVcratbm.jpg";
 
 const Questions = () => {
   return (

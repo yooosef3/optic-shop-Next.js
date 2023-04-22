@@ -1,5 +1,6 @@
 import About from "../components/home/about/About";
 import Blogs from "../components/home/blogs/Blogs";
+import Brands from '../components/home/brands/Brands';
 import FeaturedProducts from "../components/home/featured/FeaturedProducts";
 import Head from "next/head";
 import Questions from "../components/home/questions/Questions";
@@ -23,6 +24,7 @@ export default function Home({ data }) {
         <Testimonals />
         <Questions />
         <Blogs data={data} />
+        <Brands />
       </main>
     </>
   );

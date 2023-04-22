@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
 import { CgClose } from "react-icons/cg";
-import { IconContext } from "../layout/Header";
 import Link from "next/link";
+import { IconContext } from "../layout/Layout";
 
 const RightSidebar = () => {
   const [icon, setIcon] = useContext(IconContext)
@@ -17,6 +17,9 @@ const RightSidebar = () => {
         </Link>
         <Link href='/products'>
             <h1 className="text-white hover:bg-[#6CBFCC] duration-200 p-4 font-semibold text-xl">محصولات</h1>
+        </Link>
+        <Link href='/repair'>
+            <h1 className="text-white hover:bg-[#6CBFCC] duration-200 p-4 font-semibold text-xl">تعمیرات</h1>
         </Link>
         <Link href='/cart'>
             <h1 className="text-white hover:bg-[#6CBFCC] duration-200 p-4 font-semibold text-xl">سبد خرید</h1>

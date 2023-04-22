@@ -16,7 +16,7 @@ const FeaturedProducts = ({ data }) => {
       <div className="flex flex-col flex-wrap sm:flex-row sm:justify-center gap-5 ">
         {data.products.map((product) => {
           if (product.isFeatured) {
-            return <ProductCard key={product.id} {...product} />;
+            return <ProductCard key={product.id} product={product} />;
           }
         })}
       </div>

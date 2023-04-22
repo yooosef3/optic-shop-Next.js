@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import about from "../../../public/images/about.webp";
+import about from "../../../public/images/ezgif.com-gif-maker.jpg";
 import bg from "../../../public/images/istockphoto-1187878655-612x612.jpg";
 
 const About = () => {
