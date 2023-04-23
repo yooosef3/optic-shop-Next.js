@@ -20,8 +20,8 @@ function Slider({ product }) {
         }}
         className="detail w-[350px] md:w-[450px] xl:w-[550px] h-[300px] md:h-[400px] xl:h-[500px] shadow-xl rounded-lg"
       >
-        {product.images.map((image) => (
-          <SwiperSlide className="p-5 bg-white">
+        {product.images.map((image, i) => (
+          <SwiperSlide key={i} className="p-5 bg-white">
             <Image
               className="mt-[25%]"
               src={image}

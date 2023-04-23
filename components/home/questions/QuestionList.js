@@ -24,7 +24,7 @@ const QuestionList = () => {
   return (
     <div className="shadow-lg w-[90%] mx-auto rounded-3xl overflow-hidden">
       {questions.map((question) => (
-        <div className={`${question.id !==3 && 'border-b'} border-gray-300`}>
+        <div key={question.id} className={`${question.id !==3 && 'border-b'} border-gray-300`}>
           <div
             onClick={() => setToggle(question.id)}
             className="flex justify-start items-center gap-5 cursor-pointer p-4 bg-white"
