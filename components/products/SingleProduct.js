@@ -96,14 +96,14 @@ const SingleProduct = ({ product }) => {
                 <div className="flex gap-2 items-center">
                   <BsFillPlusSquareFill
                     onClick={() => handleIncreaseItem(cartItem.id)}
-                    className="text-red-600 text-2xl hover:text-red-700 rounded-sm cursor-pointer duration-200"
+                    className="text-green-600 text-2xl hover:text-green-700 rounded-sm cursor-pointer duration-200"
                   />
                   <span className="text-xl font-bold text-yellow-800">
                     {cartItem.quantity}
                   </span>
                   <AiFillMinusSquare
                     onClick={() => handleDecreaseItem(cartItem.id)}
-                    className="text-green-600 text-3xl hover:text-green-700 rounded-full cursor-pointer duration-200"
+                    className="text-red-600 text-3xl hover:text-red-700 rounded-full cursor-pointer duration-200"
                   />
                 </div>
               ) : (
