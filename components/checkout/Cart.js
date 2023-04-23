@@ -7,7 +7,7 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
 
   return (
-    <div className="bg-white py-20 lg:w-[40%]">
+    <div className="bg-white py-20 lg:w-[42%]">
       <h1 className="text-slate-700 font-bold text-lg lg:text-xl text-center mb-7">
         سبد خرید شما
       </h1>
