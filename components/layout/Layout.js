@@ -1,7 +1,9 @@
+import React, { createContext, useState } from "react";
+
 import Footer from "./Footer";
 import Header from "./Header";
-import React, { useState, createContext } from "react";
 import background from "../../public/images/Pattern.webp";
+
 export const IconContext = createContext();
 const Layout = ({ children }) => {
   const [icon, setIcon] = useState({
@@ -13,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <IconContext.Provider value={[icon, setIcon]}>
       <div
-        className="bg-no-repeat min-h-screen bg-cover"
+        className="bg-no-repeat min-h-screen bg-cover "
         style={{ backgroundImage: `url(${background.src})` }}
       >
         <Header />

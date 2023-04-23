@@ -26,7 +26,7 @@ const Header = () => {
   }
 
   return (
-    <header className="p-5 z-10 fixed w-full bg-[#F4F4F4] shadow-md flex justify-between items-center">
+    <header className="p-5 z-10 fixed max-w-[1600px] left-0 right-0 mx-auto bg-[#F4F4F4] shadow-md flex justify-between items-center">
       <div className="flex items-center gap-5">
         <div>
           <FiMenu
