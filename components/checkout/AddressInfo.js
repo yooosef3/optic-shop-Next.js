@@ -67,7 +67,7 @@ const AddressInfo = () => {
             آدرس
           </label>
           <input
-            type="tel"
+            type="text"
             name="location"
             id="location"
             placeholder="آدرس"
