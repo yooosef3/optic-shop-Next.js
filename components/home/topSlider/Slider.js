@@ -62,7 +62,7 @@ const Slider = () => {
                   <span className="text-white">{slide.highlight} </span>
                   <span>{slide.title}</span>
                   <Link href="/">
-                    <h1 className="border border-white  text-white hover:bg-white duration-300 w-fit rounded-md hover:text-[#065064] mt-[10%] lg:mt-[20%] mx-auto px-4 pb-1 lg:text-3xl lg:pb-2">
+                    <h1 className="border border-white  text-white hover:bg-white duration-300 w-fit rounded-md hover:text-[#065064] mt-[10%] lg:mt-[20%] mx-auto px-4 pt-1 lg:text-3xl ">
                       خرید
                     </h1>
                   </Link>
