@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-  body {
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-} */
 
 @layer utilities {
   .about {
@@ -63,6 +57,11 @@
     @apply text-lg text-white font-bold;
   }
 }
+
+body {
+  font-family: "YekanBakh", Arial, Helvetica, sans-serif !important;
+}
+
 /* ----------------------------- YekanBakh ----------------------------- */
 @font-face {
   font-family: YekanBakh;
