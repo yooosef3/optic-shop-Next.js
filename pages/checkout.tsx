@@ -2,6 +2,7 @@ import BannerTemplate from "../components/shared/BannerTemplate";
 import Checkout from '../components/checkout/Checkout';
 import Head from 'next/head';
 import React from 'react';
+import { getSession } from "next-auth/react";
 
 const checkout = () => {
     return (
@@ -21,3 +22,21 @@ const checkout = () => {
 };
 
 export default checkout;
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      data: session.user,
+    },
+  };
+}

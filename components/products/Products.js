@@ -7,7 +7,7 @@ import mainBg from "../../public/images/Pattern.webp";
 const Products = ({ products }) => {
   const [sortOption, setSortOption] = useState("lowest");
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(60);
+  const [maxPrice, setMaxPrice] = useState(600000);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
 

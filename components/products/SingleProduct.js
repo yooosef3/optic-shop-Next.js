@@ -1,4 +1,5 @@
-import { addItem, decreaseItem, increaseItem } from "../redux/cartSlice";
+import React, { useState } from "react";
+import { addItem, addRating, decreaseItem, increaseItem } from "../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AiFillMinusSquare } from "react-icons/ai";
@@ -10,14 +11,18 @@ import { FaTiktok } from "react-icons/fa";
 import { FaWeightHanging } from "react-icons/fa";
 import { ImFacebook } from "react-icons/im";
 import { ImTwitter } from "react-icons/im";
-import React from "react";
 import { TbBrandBeats } from "react-icons/tb";
 import { TbResize } from "react-icons/tb";
-import { TbStarFilled } from "react-icons/tb";
-import { TbStarHalfFilled } from "react-icons/tb";
 
 const SingleProduct = ({ product }) => {
+  const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
+
+  const handleStarClick = (newRating) => {
+    setRating(newRating);
+    dispatch(addRating(product.id, newRating));
+  };
+
   const items = useSelector((state) => state.cart.items);
   const cartItem = items.find((item) => item.id === product.id);
 
@@ -37,22 +42,25 @@ const SingleProduct = ({ product }) => {
     <div className="bg-white px-5 py-10 lg:w-[40%]">
       <div className="w-[90%] mx-auto md:w-[80%] lg:w-[90%]">
         <div>
-          <div className="flex mb-2 lg:mb-4">
-            <TbStarFilled className="text-yellow-400" />
-            <TbStarFilled className="text-yellow-400" />
-            <TbStarFilled className="text-yellow-400" />
-            <TbStarFilled className="text-yellow-400" />
-            <TbStarHalfFilled className="text-yellow-400" />
-          </div>
-          <h1 className="text-2xl lg:text-4xl font-bold text-slate-700 mb-5">
+          {[1, 2, 3, 4, 5].map((value) => (
+            <span
+            className="text-2xl cursor-pointer"
+              key={value}
+              style={{ color: value <= rating ? "gold" : "grey" }}
+              onClick={() => handleStarClick(value)}
+            >
+              ★
+            </span>
+          ))}
+          <h1 className="text-2xl lg:text-4xl mt-5 font-bold text-slate-700 mb-5">
             {product.name}
           </h1>
           <div className="flex items-center gap-4">
-            <h1 className="text-4xl font-bold text-[#034a64]">
-              ${product.price}
+            <h1 className="text-2xl md:text-4xl lg:text-2xl xl:text-4xl font-bold text-[#034a64]">
+              {product.price.toLocaleString()} تومان
             </h1>
-            <h1 className="text-2xl font-semibold text-gray-400 line-through">
-              ${product.noOff}
+            <h1 className="text-xl md:text-2xl lg:text-xl xl:text-2xl font-semibold text-gray-400 line-through">
+              {product.noOff.toLocaleString()} تومان
             </h1>
           </div>
           <p className="my-10 text-gray-700">{product.info}</p>

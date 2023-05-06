@@ -4,22 +4,29 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
+    orders: [],
   },
   reducers: {
     addItem: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload.id);
+      const itemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
       if (itemIndex) {
         state.items.push({ ...action.payload, quantity: 1 });
       }
     },
     increaseItem: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload);
+      const itemIndex = state.items.findIndex(
+        (item) => item.id === action.payload
+      );
       if (itemIndex !== -1) {
         state.items[itemIndex].quantity += 1;
       }
     },
     decreaseItem: (state, action) => {
-      const itemIndex = state.items.findIndex((item) => item.id === action.payload);
+      const itemIndex = state.items.findIndex(
+        (item) => item.id === action.payload
+      );
       if (itemIndex !== -1 && state.items[itemIndex].quantity > 1) {
         state.items[itemIndex].quantity -= 1;
       }
@@ -30,9 +37,34 @@ export const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    checkout: (state) => {
+      const currentDate = new Date().toLocaleDateString();
+      const ordersWithDate = state.items.map((item) => ({
+        ...item,
+        date: currentDate,
+      }));
+      state.orders = [...state.orders, ...ordersWithDate];
+      state.items = [];
+    },
+    addRating: (state, action) => {
+      const { productId, rating } = action.payload;
+      const itemIndex = state.items.findIndex((item) => item.id === productId);
+      if (itemIndex !== -1) {
+        state.items[itemIndex].rating = rating;
+      }
+    },
   },
 });
 
-export const { addItem, increaseItem, decreaseItem, removeItem, clearCart } = cartSlice.actions;
+
+export const {
+  addItem,
+  increaseItem,
+  decreaseItem,
+  removeItem,
+  clearCart,
+  checkout,
+  addRating
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -7,17 +7,26 @@ import Layout from "../components/layout/Layout";
 import { PersistGate } from "redux-persist/integration/react";
 import ProductsContextProvider from "../components/products/ProductsContextProvider";
 import { Provider } from "react-redux";
+import { SessionProvider } from "next-auth/react";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
+  if (Component.getLayout) {
+    return Component.getLayout(<Component {...pageProps} />);
+  }
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ProductsContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </ProductsContextProvider>
-      </PersistGate>
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ProductsContextProvider>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+          </ProductsContextProvider>
+        </PersistGate>
+      </Provider>
+    </SessionProvider>
   );
 }

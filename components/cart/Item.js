@@ -45,7 +45,7 @@ const Item = ({ item, checkout }) => {
           </div>
           <div className="flex flex-col">
             <h1 className="text-lg font-bold text-gray-600">{item.name}</h1>
-            <h1 className="text-gray-400 font-semibold">${item.price}</h1>
+            <h1 className="text-gray-400 font-semibold">{item.price.toLocaleString()} تومان</h1>
           </div>
         </div>
       </Link>
@@ -55,7 +55,7 @@ const Item = ({ item, checkout }) => {
           className="
          text-gray-500 font-semibold text-lg hidden md:block"
         >
-          ${item.price * item.quantity}
+          {(item.price * item.quantity).toLocaleString()} تومان
         </h1>
       )}
       <HiOutlineTrash

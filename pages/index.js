@@ -9,6 +9,7 @@ import Testimonals from "../components/home/testimonals/Testimonals";
 import fs from "fs/promises";
 import path from "path";
 export default function Home({ data }) {
+  
   return (
     <>
       <Head>

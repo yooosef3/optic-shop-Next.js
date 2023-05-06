@@ -44,7 +44,7 @@ const Total = () => {
               <BiDollarCircle className="text-slate-300" />
               <h1 className="font-bold text-slate-100">قیمت کل:</h1>
             </div>
-            <h1 className={`${totalCost > 0 ? 'text-yellow-400' : 'text-gray-300'} text-lg font-bold`}>${totalCost}</h1>
+            <h1 className={`${totalCost > 0 ? 'text-yellow-400' : 'text-gray-300'} text-lg font-bold`}>{totalCost.toLocaleString()} تومان</h1>
           </div>
           <div className="pr-6 my-5">
             <h1 className="font-bold text-slate-100 mb-2">کد تخفیف</h1>
@@ -63,7 +63,7 @@ const Total = () => {
           <div className="flex justify-between mb-8 items-center">
             <h1 className="font-semibold text-slate-50 text-lg">قیمت نهایی:</h1>
             <h1 className={`${totalCost > 0 ? 'text-yellow-400' : 'text-gray-300'} text-xl font-bold`}>
-              ${totalCost}
+              {totalCost.toLocaleString()} تومان
             </h1>
           </div>
           {cartItems.length ? (

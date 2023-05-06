@@ -72,12 +72,12 @@ const ProductCard = ({ product }) => {
             <span className="text-gray-400 text-sm font-medium">
               {product.brand}
             </span>
-            <div>
+            <div className="flex justify-center items-center gap-2">
               <span className="text-green-600 text-lg font-bold mr-2">
-                ${product.price}
+                {product.price.toLocaleString()} تومان
               </span>
               <span className="text-gray-400 line-through text-sm">
-                ${product.noOff}
+               {product.noOff.toLocaleString()} تومان
               </span>
             </div>
             {cartItem ? 

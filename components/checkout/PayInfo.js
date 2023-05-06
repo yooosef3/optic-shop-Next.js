@@ -1,17 +1,18 @@
+import React, { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
-import React, { useContext } from "react";
-import { clearCart } from "../redux/cartSlice";
-import { useForm } from "react-hook-form";
 import { StepContext } from "./Checkout";
+import { checkout } from "../redux/cartSlice";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 const PayInfo = () => {
-
   const { step, setStep } = useContext(StepContext);
-
+  const router = useRouter();
 
   const cartItems = useSelector((state) => state.cart.items);
+
   const totalCost = cartItems.reduce(
     (accumulator, item) => accumulator + item.price * item.quantity,
     0
@@ -22,7 +23,7 @@ const PayInfo = () => {
   const notify = () =>
     toast.success("!پرداخت با موفقیت انجام شد", {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -39,9 +40,12 @@ const PayInfo = () => {
 
   const submitHandler = async ({ name, card, expire, cvv2 }) => {
     notify();
-    dispatch(clearCart());
+    dispatch(checkout());
     reset();
-    setStep({...step, pay:true})
+    setStep({ ...step, pay: true });
+    setTimeout(() => {
+      router.push("/");
+    }, 2000);
   };
 
   return (
@@ -151,7 +155,9 @@ const PayInfo = () => {
         </div>
         <div className="flex justify-between mb-8 items-center">
           <h1 className="font-semibold text-slate-700 text-lg">قیمت نهایی</h1>
-          <h1 className="font-semibold text-slate-600 text-lg">${totalCost}</h1>
+          <h1 className="font-semibold text-slate-600 text-lg">
+            {totalCost.toLocaleString()} تومان
+          </h1>
         </div>
         {cartItems.length ? (
           <button
