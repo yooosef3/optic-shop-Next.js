@@ -22,7 +22,7 @@ export default function LoginForm() {
           </h1>
         </div>
         <div
-          onClick={() => signIn("github")}
+          onClick={() => signIn("github", { callbackUrl: "/" })}
           className="group pt-3 flex justify-center h-11 gap-2 bg-slate-800 hover:bg-slate-900 duration-200 cursor-pointer rounded-md "
         >
           <BsGithub className="text-2xl text-white" />
