@@ -6,7 +6,7 @@ import Layout from "../components/layout/Layout";
 import { PersistGate } from "redux-persist/integration/react";
 import ProductsContextProvider from "../components/products/ProductsContextProvider";
 import { Provider } from "react-redux";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider } from "next-auth/react"
 
 export default function App({
   Component,

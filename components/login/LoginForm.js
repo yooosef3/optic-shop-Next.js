@@ -1,7 +1,7 @@
 import { BsGithub } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import React from "react";
-import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react"
 
 export default function LoginForm() {
   

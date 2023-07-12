@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { addItem, addRating, decreaseItem, increaseItem } from "../redux/cartSlice";
+import {
+  addItem,
+  decreaseItem,
+  increaseItem,
+} from "../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AiFillMinusSquare } from "react-icons/ai";
@@ -9,22 +13,22 @@ import { BsFillPlusSquareFill } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaWeightHanging } from "react-icons/fa";
+import { GiStarsStack } from "react-icons/gi";
 import { ImFacebook } from "react-icons/im";
 import { ImTwitter } from "react-icons/im";
 import { TbBrandBeats } from "react-icons/tb";
 import { TbResize } from "react-icons/tb";
 
 const SingleProduct = ({ product }) => {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(4);
   const dispatch = useDispatch();
-
-  const handleStarClick = (newRating) => {
-    setRating(newRating);
-    dispatch(addRating(product.id, newRating));
-  };
 
   const items = useSelector((state) => state.cart.items);
   const cartItem = items.find((item) => item.id === product.id);
+
+  const handleStarClick = (newRating) => {
+    setRating(newRating);
+  };
 
   const handleAddItem = (item) => {
     dispatch(addItem(item));
@@ -44,10 +48,9 @@ const SingleProduct = ({ product }) => {
         <div>
           {[1, 2, 3, 4, 5].map((value) => (
             <span
-            className="text-2xl cursor-pointer"
+              className="text-2xl"
               key={value}
               style={{ color: value <= rating ? "gold" : "grey" }}
-              onClick={() => handleStarClick(value)}
             >
               ★
             </span>
@@ -99,6 +102,22 @@ const SingleProduct = ({ product }) => {
             </div>
           </div>
           <div>
+          <div className="my-6">
+          <div className="flex gap-2 mb-3">
+            <GiStarsStack className="text-[#034a64]"/>
+            <h1 className="font-semibold text-slate-800">نظر شما:</h1>
+          </div>
+            {[1, 2, 3, 4, 5].map((value) => (
+              <span
+                className="text-4xl cursor-pointer"
+                key={value}
+                style={{ color: value <= rating ? "gold" : "grey" }}
+                onClick={() => handleStarClick(value)}
+              >
+                ★
+              </span>
+            ))}
+          </div>
             <div className="flex justify-center items-center gap-10 mb-10">
               {cartItem ? (
                 <div className="flex gap-2 items-center">

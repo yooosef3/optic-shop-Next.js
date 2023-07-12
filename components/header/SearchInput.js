@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
 import { BsSearch } from "react-icons/bs";
+import React from "react";
 
 const SearchInput = ({search: {searched, setSearched}}) => {
   

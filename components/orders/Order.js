@@ -26,7 +26,7 @@ const Order = ({ order }) => {
           <div className="rounded-full bg-white p-1 ring w-[45px] h-[45px]">
             <Image
               className="pt-3"
-              src={order.images[1]}
+              src={order?.images?.[1]}
               width={70}
               height={70}
               alt={order.name}

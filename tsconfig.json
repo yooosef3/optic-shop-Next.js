@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js", "pages/login.tsx", "pages/_app.jsx", "pages/checkout.jsx", "pages/repair.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.jsx", "pages/login.tsx", "pages/_app.jsx", "pages/checkout.jsx", "pages/repair.jsx"],
   "exclude": ["node_modules"]
 }

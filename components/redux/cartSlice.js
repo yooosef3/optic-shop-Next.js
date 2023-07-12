@@ -46,16 +46,8 @@ export const cartSlice = createSlice({
       state.orders = [...state.orders, ...ordersWithDate];
       state.items = [];
     },
-    addRating: (state, action) => {
-      const { productId, rating } = action.payload;
-      const itemIndex = state.items.findIndex((item) => item.id === productId);
-      if (itemIndex !== -1) {
-        state.items[itemIndex].rating = rating;
-      }
-    },
   },
 });
-
 
 export const {
   addItem,
@@ -64,7 +56,7 @@ export const {
   removeItem,
   clearCart,
   checkout,
-  addRating
+  addRating,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
