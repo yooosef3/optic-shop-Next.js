@@ -44,7 +44,7 @@ const PayInfo = () => {
     reset();
     setStep({ ...step, pay: true });
     setTimeout(() => {
-      router.push("/");
+      router.push("https://optic-shop-next-js.vercel.app/");
     }, 2000);
   };
 
