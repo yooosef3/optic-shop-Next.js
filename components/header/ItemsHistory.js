@@ -53,11 +53,11 @@ const ItemsHistory = ({ toggleCart }) => {
             </Link>
           </>
         )}
-        <Link href="/orders">
+        {/* <Link href="/orders">
           <h1 className="text-white font-bold text-center py-2 pt-[11px] h-10 bg-zinc-800 rounded-lg hover:bg-[#036679] duration-200">
             مشاهده سوابق خرید شما
           </h1>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
